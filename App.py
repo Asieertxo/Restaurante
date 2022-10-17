@@ -29,14 +29,43 @@ styles = [css, bootstraps]
 
 
 @app.route('/')
-def Index():
+def index():
+    return render_template('index.html', styles = styles)
+
+
+
+
+@app.route('/carta')
+def carta():
     conn = mysql.connection.cursor()
-    conn.execute('SELECT * FROM menu')
-    menu = conn.fetchall()
+    conn.execute('SELECT * FROM carta')
+    carta = conn.fetchall()
     
     img = os.path.join(app.config['UPLOAD_IMG'], 'prueba.jpg')
 
-    return render_template('index.html', menu = menu, img = img, styles = styles)
+    return render_template('carta.html', carta = carta, img = img, styles = styles)
+
+@app.route('/locales')
+def locales():
+    return "locales"
+    return render_template('locales.html', styles = styles)
+
+@app.route('/faqs')
+def faqs():
+    return "preguntas"
+    return render_template('faqs.html', styles = styles)
+
+@app.route('/pedido')
+def pedido():
+    return "pedido"
+    return render_template('pedido.html', styles = styles)
+
+
+
+
+
+
+
 
 
 
@@ -63,9 +92,7 @@ def add_client():
 
 
 
-@app.route('/menu')
-def menu():
-    return 'Menu'
+
 
 
 

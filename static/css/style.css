@@ -1,11 +1,40 @@
-
-.menu-plato{
-    background-color: black;
+.carta-tarjetas{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: green;
 }
 
-.menu-photo{
-    width: 20rem;
-    height:20rem;
+.carta-tarjeta{
+    background-color: red;
     border-radius: 5rem;
+    border: 2rem;
+    width: 30%;
+}
 
+.carta-photo{
+    width: 90%;
+    height:15rem;
+    border-radius: 5rem;
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.carta-nombre{
+    background-color: yellow;
+    padding-left: 10%;
+}
+
+.carta-descrip{
+    text-align: center;
+}
+
+.carta-alergias{
+    background-color: blue;
+    text-align: center;
+}
+
+.carta-precio{
+    background-color: white;
+    text-align: center;
 }

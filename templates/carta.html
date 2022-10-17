@@ -1,17 +1,8 @@
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-{% for message in messages%}
-    <p>{{message}}</p>
-{% endfor %}
-{% endif %}
-{% endwith %}
-
-
 <!DOCTYPE html>
 <html lang=”es”>
 <head>
-    <link rel="stylesheet" type="text/css" href="{{ styles.0 }}">
     <link rel="stylesheet" type="text/css" href="{{ styles.1 }}">
+    <link rel="stylesheet" type="text/css" href="{{ styles.0 }}">
     <meta charset=”UTF-8″ />
     <title>Restaurante</title>
 </head>
@@ -49,28 +40,24 @@
         <button type="submit">Save</button>
     </form>-->
     <div class="container">
-        <table>
-            <thead>
-                <tr>
-                    <td>Foto</td>
-                    <td>Nombre</td>
-                    <td>Descripcion</td>
-                    <td>Alergenos</td>
-                    <td>Precio</td>
-                </tr>
-            </thead>
-            <tbody>
-                {% for plato in carta %}
-                    <tr class="carta-plato">
-                        <td class="col-md-1"><img class="carta-photo" src="{{ img }}" alt=""></td>
-                        <td class="col-md-2">{{ plato.1 }}</td>
-                        <td class="col-md-6">{{ plato.3 }}</td>
-                        <td class="col-md-1">{{ plato.4 }}</td>
-                        <td class="col-md-1">{{ plato.5 }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+      <div class="carta-titulos">
+        <td>Foto</td>
+        <td>Nombre</td>
+        <td>Descripcion</td>
+        <td>Alergenos</td>
+        <td>Precio</td>
+      </div>
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 carta-tarjetas">
+        {% for plato in carta %}
+          <div class="feature col carta-tarjeta">
+            <img class="carta-photo" src="{{ img }}" alt="">
+            <p class="fs-2 carta-nombre">{{ plato.1 }}</p>
+            <p class="carta-descrip">{{ plato.3 }}</p>
+            <p class="carta-alergias">{{ plato.4 }}</p>
+            <p class="carta-precio">{{ plato.5 }}</p>
+          </div>
+        {% endfor %}
+      </div>
     </div>
     
 </body>
