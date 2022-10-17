@@ -1,3 +1,4 @@
+from ast import dump
 from flask import Flask, render_template, request, redirect, url_for,flash
 from ensurepip import bootstrap
 from flask_mysqldb import MySQL
@@ -30,7 +31,11 @@ styles = [css, bootstraps]
 
 @app.route('/')
 def index():
-    return render_template('index.html', styles = styles)
+    conn = mysql.connection.cursor()
+    conn.execute('SELECT * FROM carta')
+    carta = conn.fetchall()
+    return print("adios", carta)
+    return "hola"
 
 
 
@@ -41,9 +46,16 @@ def carta():
     conn.execute('SELECT * FROM carta')
     carta = conn.fetchall()
     
-    img = os.path.join(app.config['UPLOAD_IMG'], 'prueba.jpg')
+    #imgs = []
+    #for platos in carta:
+    #    print (platos)
+    #    img = os.path.join(app.config['UPLOAD_IMG'], '.jpg')
+    #    imgs.append([img])
 
-    return render_template('carta.html', carta = carta, img = img, styles = styles)
+    return render_template('carta.html', carta = carta, styles = styles)
+
+
+
 
 @app.route('/locales')
 def locales():
