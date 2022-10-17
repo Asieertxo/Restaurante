@@ -1,0 +1,77 @@
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages%}
+    <p>{{message}}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
+<!DOCTYPE html>
+<html lang=”es”>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ styles.1 }}">
+    <link rel="stylesheet" type="text/css" href="{{ styles.0 }}">
+    <meta charset=”UTF-8″ />
+    <title>Restaurante</title>
+</head>
+<body>
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+            </a>
+    
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+              <li><a href="#" class="nav-link px-2 text-white">Carta</a></li>
+              <li><a href="#" class="nav-link px-2 text-white">Locales</a></li>
+              <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+              <li><a href="#" class="nav-link px-2 text-white">Pedido</a></li>
+            </ul>
+    
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+              <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+            </form>
+    
+            <div class="text-end">
+              <button type="button" class="btn btn-outline-light me-2">Login</button>
+              <button type="button" class="btn btn-warning">Sign-up</button>
+            </div>
+          </div>
+        </div>
+      </header>
+    <!--<form action="/add_client" method="POST">
+        <input type="text" name="nombre" placeholder="nombre">
+        <input type="text" name="email" placeholder="email">
+        <input type="password" name="password" placeholder="password">
+        <button type="submit">Save</button>
+    </form>-->
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <td>Foto</td>
+                    <td>Nombre</td>
+                    <td>Descripcion</td>
+                    <td>Alergenos</td>
+                    <td>Precio</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for plato in menu %}
+                    <tr class="menu-plato">
+                        <td class="col-md-1"><img class="menu-photo" src="{{ img }}" alt=""></td>
+                        <td class="col-md-2">{{ plato.1 }}</td>
+                        <td class="col-md-6">{{ plato.3 }}</td>
+                        <td class="col-md-1">{{ plato.4 }}</td>
+                        <td class="col-md-1">{{ plato.5 }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
