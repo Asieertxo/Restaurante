@@ -34,7 +34,7 @@ def index():
     conn = mysql.connection.cursor()
     conn.execute('SELECT * FROM carta')
     carta = conn.fetchall()
-    return print("adios", carta)
+    return render_template('index.html', carta = carta, styles = styles)
     return "hola"
 
 
@@ -45,12 +45,8 @@ def carta():
     conn = mysql.connection.cursor()
     conn.execute('SELECT * FROM carta')
     carta = conn.fetchall()
-    
-    #imgs = []
-    #for platos in carta:
-    #    print (platos)
-    #    img = os.path.join(app.config['UPLOAD_IMG'], '.jpg')
-    #    imgs.append([img])
+
+    #img = os.path.join(app.config['UPLOAD_IMG'], 'prueba.jpg')
 
     return render_template('carta.html', carta = carta, styles = styles)
 

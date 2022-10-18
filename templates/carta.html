@@ -50,7 +50,7 @@
       <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 carta-tarjetas">
         {% for plato in carta %}
           <div class="feature col carta-tarjeta">
-            <img class="carta-photo" src="{{ img }}" alt="">
+            <img class="carta-photo" src="{{ url_for('static', filename= 'img/' + plato.1 + '.jpg')}}">
             <p class="fs-2 carta-nombre">{{ plato.1 }}</p>
             <p class="carta-descrip">{{ plato.3 }}</p>
             <p class="carta-alergias">{{ plato.4 }}</p>
