@@ -1,5 +1,18 @@
 body{
     background-color: #1e1e1e;
+    color: #f3c319;
+}
+
+.carta-texto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 20rem;
+}
+
+.carta-seccion{
+    text-align: center;
 }
 
 .carta-tarjetas{
@@ -14,7 +27,6 @@ body{
     border: 2rem;
     width: 30%;
     text-align: center;
-    display: ;
 }
 
 .carta-photo{

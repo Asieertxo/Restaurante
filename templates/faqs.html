@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang=”es”>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ styles.0 }}">
+    <link rel="stylesheet" type="text/css" href="{{ styles.2 }}">
+    <meta charset=”UTF-8″ />
+    <title>Restaurante</title>
+</head>
+<body>
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+            </a>
+    
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="{{ url_for( 'index' ) }}" class="nav-link px-2 text-secondary">Home</a></li>
+              <li><a href="{{ url_for( 'carta' ) }}" class="nav-link px-2 text-white">Carta</a></li>
+              <li><a href="{{ url_for( 'locales' ) }}" class="nav-link px-2 text-white">Locales</a></li>
+              <li><a href="{{ url_for( 'faqs' ) }}" class="nav-link px-2 text-white">FAQs</a></li>
+              <li><a href="{{ url_for( 'pedido' ) }}" class="nav-link px-2 text-white">Pedido</a></li>
+            </ul>
+    
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+              <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+            </form>
+    
+            <div class="text-end">
+              <button type="button" class="btn btn-outline-light me-2">Login</button>
+              <button type="button" class="btn btn-warning">Sign-up</button>
+            </div>
+          </div>
+        </div>
+    </header>
+
+    <div>
+        <div class="faqs">
+            <div class="faqs70">
+                <h1>Preguntas destacados</h1>
+                <div class="faqs-coment">
+                    {% for faq in faqs %}
+                        <div class="faqs-tarjeta">
+                            <div class="faqs-tarjeta_names">
+                                <p>{{ faq.1 }} {{ faq.2 }}</p>
+                                <p>{{ faq.3 }}</p>
+                            </div>
+                            <p>{{ faq.4 }}</p>
+                            <div class="faqs-tarjeta_caract">
+                                <form action="/sumar_like" method="POST">
+                                    <p>
+                                        {{ faq.5 }}
+                                        <input type="image" class="faqs-icon" src="{{ url_for('static', filename= 'img/like.png')}}">
+                                        <input type="hidden"  name="id" value="{{ faq.0 }}">
+                                        <input type="hidden"  name="likes" value="{{ faq.5 }}">
+                                    </p>
+                                    <p>{{ faq.6 }}</p>
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="faqs-form">
+                <form class="faqs-formulario" action="/añadir_comentario" method="POST">
+                    <p>Dejanos tu pregunta</p>
+                    <input class="faqs-input" type="text" name="nombre" placeholder="Nombre">
+                    <input class="faqs-input" type="text" name="apellido" placeholder="Apellido">
+                    <input class="faqs-input" type="email" name="email" placeholder="email">
+                    <textarea class="faqs-input" name="mensaje" placeholder="Mensaje"></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+    
+</body>
+</html>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang=”es”>
 <head>
-    <link rel="stylesheet" type="text/css" href="{{ styles.1 }}">
     <link rel="stylesheet" type="text/css" href="{{ styles.0 }}">
+    <link rel="stylesheet" type="text/css" href="{{ styles.1 }}">
     <meta charset=”UTF-8″ />
     <title>Restaurante</title>
 </head>
@@ -33,20 +33,23 @@
           </div>
         </div>
       </header>
-    <!--<form action="/add_client" method="POST">
-        <input type="text" name="nombre" placeholder="nombre">
-        <input type="text" name="email" placeholder="email">
-        <input type="password" name="password" placeholder="password">
-        <button type="submit">Save</button>
-    </form>-->
+
+
+
+
     <div class="container">
-      <div class="carta-titulos">
-        <td>Foto</td>
-        <td>Nombre</td>
-        <td>Descripcion</td>
-        <td>Alergenos</td>
-        <td>Precio</td>
+
+      <div class="carta-texto">
+        <div>
+          <h1>Las mejores hamburguesas de madrid</h1>
+          <p>Todas nuestras hamburguesas tienen carne de txuleton de 1Kg, quitandole el hueso se quedan en 800gr, por lo que cada carne de la hamburguesa lleva 1/4 de txuleton. <br> Nuestros panes son artesanales y las salsas elaboradas por nosotros.</p>
+        </div>
       </div>
+
+      <div class="carta-seccion">
+        <h2>Hamburguesas</h2>
+      </div>
+
       <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 carta-tarjetas">
         {% for plato in carta %}
           <div class="feature col carta-tarjeta">
@@ -73,6 +76,11 @@
           </div>
         {% endfor %}
       </div>
+
+      <div class="carta-seccion">
+        <h2>Bebidas</h2>
+      </div>
+
     </div>
     
 </body>
