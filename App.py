@@ -22,16 +22,13 @@ app.secret_key = "mysecretkey"
 picFolder = os.path.join('static', 'img')
 app.config['UPLOAD_IMG'] = picFolder
 
-#importacion de la capeta de imagenes
+#importacion de estilos
 styleFolder = os.path.join('static', 'css')
 app.config['UPLOAD_STYLE'] = styleFolder
 css_carta = os.path.join(app.config['UPLOAD_STYLE'], 'style-carta.css')
 css_faqs = os.path.join(app.config['UPLOAD_STYLE'], 'style-faqs.css')
 bootstraps = os.path.join(app.config['UPLOAD_STYLE'], 'bootstrap.min.css')
 styles = [bootstraps, css_carta, css_faqs]
-
-
-
 
 
 

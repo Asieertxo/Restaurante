@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `carta` (
   `alergenos` enum('free','gluten','lactosa','gluten/lactosa') DEFAULT 'free',
   `precio` float DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `carta`
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `faqs` (
   `likes` int DEFAULT NULL,
   `fecha` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `faqs`

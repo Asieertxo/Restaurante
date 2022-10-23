@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang=”es”>
 <head>
@@ -15,7 +16,8 @@
             </a>
     
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><a href="{{ url_for( 'index' ) }}" class="nav-link px-2 text-secondary">Home</a></li>
+              <a  href="{{ url_for( 'index' ) }}" class=""><img class="nav-link px-2 header-icon" src="{{ url_for('static', filename= 'img/burger-y.png')}}"></a>
+              <!--<li><a href="{{ url_for( 'index' ) }}" class="nav-link px-2 text-secondary">Home</a></li>-->
               <li><a href="{{ url_for( 'carta' ) }}" class="nav-link px-2 text-white">Carta</a></li>
               <li><a href="{{ url_for( 'locales' ) }}" class="nav-link px-2 text-white">Locales</a></li>
               <li><a href="{{ url_for( 'faqs' ) }}" class="nav-link px-2 text-white">FAQs</a></li>
@@ -45,6 +47,8 @@
           <p>Todas nuestras hamburguesas tienen carne de txuleton de 1Kg, quitandole el hueso se quedan en 800gr, por lo que cada carne de la hamburguesa lleva 1/4 de txuleton. <br> Nuestros panes son artesanales y las salsas elaboradas por nosotros.</p>
         </div>
       </div>
+
+      <hr/>
 
       <div class="carta-seccion">
         <h2>Hamburguesas</h2>
@@ -77,11 +81,43 @@
         {% endfor %}
       </div>
 
+      <hr/>
+
       <div class="carta-seccion">
         <h2>Bebidas</h2>
       </div>
 
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 carta-tarjetas">
+        {% for plato in carta %}
+          <div class="feature col carta-tarjeta">
+            <img class="carta-photo" src="{{ url_for('static', filename= 'img/' + plato.1 + '.jpg')}}">
+            <p class="fs-2 carta-nombre">{{ plato.1 }}</p>
+            <p class="carta-descrip">{{ plato.3 }}</p>
+            {%if(plato.4 == "gluten/lactosa")%}
+              <img class="carta-icon" src="{{ url_for('static', filename= 'img/gluten.png')}}">
+              <img class="carta-icon" src="{{ url_for('static', filename= 'img/lactosa.png')}}">
+            {%endif%}
+            {%if(plato.4 == "lactosa")%}
+              <img class="carta-icon" src="{{ url_for('static', filename= 'img/freegluten.png')}}">
+              <img class="carta-icon" src="{{ url_for('static', filename= 'img/lactosa.png')}}">
+            {%endif%}
+            {%if(plato.4 == "gluten")%}
+              <img class="carta-icon" src="{{ url_for('static', filename= 'img/gluten.png')}}">
+              <img class="carta-icon" src="{{ url_for('static', filename= 'img/freelactosa.png')}}">
+            {%endif%}
+            {%if(plato.4 == "free")%}
+              <img class="carta-icon" src="{{ url_for('static', filename= 'img/freegluten.png')}}">
+              <img class="carta-icon" src="{{ url_for('static', filename= 'img/freelactosa.png')}}">
+            {%endif%}
+            <p class="carta-precio">{{ plato.5 }}€</p>
+          </div>
+        {% endfor %}
+      </div>
     </div>
+
+    <hr/>
+
+    <iframe src="{{ url_for('static', filename= 'html/footer.html')}}" frameborder="0" width="100%" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></iframe>
     
 </body>
 </html>
