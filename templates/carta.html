@@ -117,7 +117,13 @@
 
     <hr/>
 
-    <iframe src="{{ url_for('static', filename= 'html/footer.html')}}" frameborder="0" width="100%" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></iframe>
+    <!--<script src="{{ url_for('static', filename= 'jQuery/jquery-3.6.1.min.js')}}"></script>
+    <script>
+      $("#footer").load("./../static/html/footer.html footer");
+    </script>
+
+    <div id="footer"></div>-->
+    <iframe src="{{ url_for('static', filename= 'html/footer.html')}}" target="_top" frameborder="0" width="100%" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></iframe>
     
 </body>
 </html>

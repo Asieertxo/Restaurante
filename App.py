@@ -27,12 +27,13 @@ styleFolder = os.path.join('static', 'css')
 app.config['UPLOAD_STYLE'] = styleFolder
 css_carta = os.path.join(app.config['UPLOAD_STYLE'], 'style-carta.css')
 css_faqs = os.path.join(app.config['UPLOAD_STYLE'], 'style-faqs.css')
+css_locales = os.path.join(app.config['UPLOAD_STYLE'], 'style-locales.css')
 bootstraps = os.path.join(app.config['UPLOAD_STYLE'], 'bootstrap.min.css')
-styles = [bootstraps, css_carta, css_faqs]
+styles = [bootstraps, css_carta, css_faqs, css_locales]
 
 
 
-##############################################################################################################PAGINA PRINCIPAL
+##############################################################################################################HOME
 @app.route('/')
 def index():
     return render_template('index.html', styles = styles)
@@ -63,7 +64,6 @@ def carta():
 ##############################################################################################################LOCALES
 @app.route('/locales')
 def locales():
-    return "locales"
     return render_template('locales.html', styles = styles)
 
 
