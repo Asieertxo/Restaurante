@@ -1,0 +1,8 @@
+body{
+    background-color: #1e1e1e;
+    color: #f3c319;
+    scrollbar-width:  none; /*Firefox*/
+}
+body::-webkit-scrollbar {
+    width: 0;
+}

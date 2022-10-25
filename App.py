@@ -1,7 +1,7 @@
 from ast import dump
-from flask import Flask, render_template, request, redirect, url_for,flash
-from ensurepip import bootstrap
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
+
 from datetime import date
 import os
 
@@ -25,12 +25,16 @@ app.config['UPLOAD_IMG'] = picFolder
 #importacion de estilos
 styleFolder = os.path.join('static', 'css')
 app.config['UPLOAD_STYLE'] = styleFolder
-css_carta = os.path.join(app.config['UPLOAD_STYLE'], 'style-carta.css')
-css_faqs = os.path.join(app.config['UPLOAD_STYLE'], 'style-faqs.css')
-css_locales = os.path.join(app.config['UPLOAD_STYLE'], 'style-locales.css')
 bootstraps = os.path.join(app.config['UPLOAD_STYLE'], 'bootstrap.min.css')
-styles = {"bootstrap": bootstraps, "carta": css_carta, "locales": css_locales, "faqs": css_faqs}
+css_body = os.path.join(app.config['UPLOAD_STYLE'], 'style-body.css')
+css_header = os.path.join(app.config['UPLOAD_STYLE'], 'style-header.css')
+css_footer = os.path.join(app.config['UPLOAD_STYLE'], 'style-footer.css')
+css_index = os.path.join(app.config['UPLOAD_STYLE'], 'style-index.css')
+css_carta = os.path.join(app.config['UPLOAD_STYLE'], 'style-carta.css')
+css_locales = os.path.join(app.config['UPLOAD_STYLE'], 'style-locales.css')
+css_faqs = os.path.join(app.config['UPLOAD_STYLE'], 'style-faqs.css')
 
+styles = {"bootstrap": bootstraps, "body": css_body, "header": css_header, "footer": css_footer, "index": css_index, "carta": css_carta, "locales": css_locales, "faqs": css_faqs}
 
 
 ##############################################################################################################HOME
@@ -159,7 +163,6 @@ def add_client():
         mysql.connection.commit()
 
         return redirect(url_for('Index'))
-
 
 
 
