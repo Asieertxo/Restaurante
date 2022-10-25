@@ -29,7 +29,7 @@ css_carta = os.path.join(app.config['UPLOAD_STYLE'], 'style-carta.css')
 css_faqs = os.path.join(app.config['UPLOAD_STYLE'], 'style-faqs.css')
 css_locales = os.path.join(app.config['UPLOAD_STYLE'], 'style-locales.css')
 bootstraps = os.path.join(app.config['UPLOAD_STYLE'], 'bootstrap.min.css')
-styles = [bootstraps, css_carta, css_faqs, css_locales]
+styles = {"bootstrap": bootstraps, "carta": css_carta, "locales": css_locales, "faqs": css_faqs}
 
 
 
