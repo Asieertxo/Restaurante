@@ -1,0 +1,7 @@
+pip install virtualenv (cmd) -> instalar el entorno virtual
+
+virtualenv -p python3 env(vsc) -> para añadirlo al proyecto
+
+.\env\Scripts\activate(vsc) -> activarlo
+
+pip install flask flask-login flask-mysqldb flask-WTF(vsc) -> instalar paquetes necesariosjj

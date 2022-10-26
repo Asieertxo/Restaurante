@@ -19,7 +19,6 @@ body::-webkit-scrollbar {
     background-color: #1e1e1e;
     /*height: 9rem;*/
     padding: 1rem 0;
-    overflow: hidden;
 }
 
 .footer-icon{
