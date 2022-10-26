@@ -1,17 +1,6 @@
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang=”es”>
-<head>
-    <link rel="stylesheet" type="text/css" href="{{ styles['bootstrap'] }}">
-    <link rel="stylesheet" type="text/css" href="{{ styles['body'] }}">
-    <link rel="stylesheet" type="text/css" href="{{ styles['carta'] }}">
-    <meta charset=”UTF-8″ />
-    <title>Restaurante</title>
-</head>
-<body>
-   
-    <iframe src="{{ url_for('static', filename= 'html/header.html')}}" target="_parent" frameborder="0" width="100%" height="80rem" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></iframe>
-
+{% block content %}
     <div class="container">
 
       <div class="carta-texto">
@@ -90,7 +79,4 @@
 
     <hr/>
 
-    <iframe src="{{ url_for('static', filename= 'html/footer.html')}}" scrolling="no" target="_top" frameborder="0" width="100%" height="60rem" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></iframe>
-    
-</body>
-</html>
+{% endblock %}

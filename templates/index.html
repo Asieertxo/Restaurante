@@ -1,45 +1,5 @@
-<!DOCTYPE html>
-<html lang=”es”>
-<head>
-  <link rel="stylesheet" type="text/css" href="{{ styles['bootstrap'] }}">
-  <link rel="stylesheet" type="text/css" href="{{ styles['body'] }}">
-  <link rel="stylesheet" type="text/css" href="{{ styles['index'] }}">
-    <meta charset=”UTF-8″ />
-    <title>Restaurante</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-  <iframe src="{{ url_for('static', filename= 'html/header.html')}}" target="_top" frameborder="0" width="100%" height="80rem" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></iframe>
-    
-    
-
-
-    <div class="container">
-        <table>
-            <thead>
-                <tr>
-                    <td>Foto</td>
-                    <td>Nombre</td>
-                    <td>Descripcion</td>
-                    <td>Alergenos</td>
-                    <td>Precio</td>
-                </tr>
-            </thead>
-            <tbody>
-                {% for plato in carta %}
-                    <tr class="carta-plato">
-                        <td class="col-md-1"><img class="carta-photo" src="{{ img }}" alt=""></td>
-                        <td class="col-md-2">{{ plato.1 }}</td>
-                        <td class="col-md-6">{{ plato.3 }}</td>
-                        <td class="col-md-1">{{ plato.4 }}</td>
-                        <td class="col-md-1">{{ plato.5 }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-
-    <iframe src="{{ url_for('static', filename= 'html/footer.html')}}" scrolling="no" target="_top" frameborder="0" width="100%" height="60rem" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></iframe>
-    
-</body>
-</html>
+{% block content %}
+    <h1>Welcome to FlaskBlog</h1>
+{% endblock %}

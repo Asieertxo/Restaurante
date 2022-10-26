@@ -1,76 +1,63 @@
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang=”es”>
-<head>
-  <link rel="stylesheet" type="text/css" href="{{ styles['bootstrap'] }}">
-  <link rel="stylesheet" type="text/css" href="{{ styles['body'] }}">
-  <link rel="stylesheet" type="text/css" href="{{ styles['locales'] }}">
-    <meta charset=”UTF-8″ />
-    <title>Restaurante</title>
-</head>
-<body>
-
-  <iframe src="{{ url_for('static', filename= 'html/header.html')}}" target="_top" frameborder="0" width="100%" height="80rem" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></iframe>
-
-
-
+{% block content %}
 
     <div class="container">
 
-      <div class="sectionOne">
-        <h1 class="sectionOne-h1">Asier Burger's</h1>
+      <div class="locales-sectionOne">
+        <h1 class="locales-sectionOne-h1">Asier Burger's</h1>
       </div>
 
-      <div class="sectionTwo">
+      <div class="locales-sectionTwo">
         <h1>creatividad, innovación, ilusión, pasión, arte</h1>
       </div>
 
       <hr/>
 
-      <div class="sectionThree">
-        <div class="sectionThree-left">
+      <div class="locales-sectionThree">
+        <div class="locales-sectionThree_left">
           <p>Son las cosas que siempre nos han movido, el motor de todo lo que hacemos y somos. Y es que, conformarnos con lo que está ahí fuera, nunca ha sido una opción.</p>
-          <div class="sectionThree-left_img"></div>
+          <div class="locales-sectionThree_left_img"></div>
         </div>
-        <div class="sectionThree-right">
-          <div class="sectionThree-right_img"></div>
+        <div class="locales-sectionThree_right">
+          <div class="locales-sectionThree_right_img"></div>
           <p>Tener la oportunidad de llevar nuestros valores a nuevos lugares es muy emocionante. Y es que, crear y evolucionar siempre ha estado en nuestro ADN.</p>
         </div>
       </div>
 
       <hr/>
 
-      <div class="sectionFour">
+      <div class="locales-sectionFour">
         <h3>QUE HACEMOS</h3>
         <p>Buscamos cocinar a la brasa la mejor carne con verdura fresca, grandes quesos y un pan brioche memorable para mostrar al mundo nuestra forma de entender este plato tan canalla.</p>
       </div>
 
-      <div class="sectionFive">
-        <div class="sectionFive-part">
-          <img class="sectionFive-icon" src="{{ url_for('static', filename= 'img/bocadillo.png')}}">
+      <div class="locales-sectionFive">
+        <div class="locales-sectionFive_part">
+          <img class="locales-sectionFive_icon" src="{{ url_for('static', filename= 'img/bocadillo.png')}}">
           <h5>LA CARNE</h5>
           <p>De primera calidad, que proviene de ganado criado en condiciones de bienestar con alimentación 100% vegetal.</p>
         </div>
-        <div class="sectionFive-part">
-          <img class="sectionFive-icon" src="{{ url_for('static', filename= 'img/pan.png')}}">
+        <div class="locales-sectionFive_part">
+          <img class="locales-sectionFive_icon" src="{{ url_for('static', filename= 'img/pan.png')}}">
           <h5>EL PAN</h5>
           <p>Todos los brioches se elaboran en base a nuestra propia receta con ingredientes naturales. Una masa fresca y de confianza que hemos mimado desde el primer día.</p>
         </div>
-        <div class="sectionFive-part">
-          <img class="sectionFive-icon" src="{{ url_for('static', filename= 'img/hoguera.png')}}">
+        <div class="locales-sectionFive_part">
+          <img class="locales-sectionFive_icon" src="{{ url_for('static', filename= 'img/hoguera.png')}}">
           <h5>LAS BRASAS</h5>
           <p>Cada día se prenden brasas de carbón vegetal para cocinar las carnes en un horno Josper. El carbón confiere a la carne de un sabor, un olor y una jugosidad inigualables.</p>
         </div>
-        <div class="sectionFive-part">
-          <img class="sectionFive-icon" src="{{ url_for('static', filename= 'img/espatula.png')}}">
+        <div class="locales-sectionFive_part">
+          <img class="locales-sectionFive_icon" src="{{ url_for('static', filename= 'img/espatula.png')}}">
           <h5>EL METODO</h5>
           <p>Nuestro objetivo es ofrecerte una gran hamburguesa con ingredientes de primera calidad. Para ello, nuestros procesos de preparación, elaboración y cocinado siempre se realizan al momento para cada pedido.</p>
         </div>
       </div>
 
-      <div class="sectionSix">
+      <div class="locales-sectionSix">
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12135.749220655705!2d-3.8757129!3d40.4987694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1666644415398!5m2!1ses!2ses" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="sectionSix-right">
+        <div class="locales-sectionSix_right">
           <div>
             <h2>¿COMO LLEGAR?</h2>
             <h4>Las Rozas de Madrid</h4>
@@ -86,13 +73,4 @@
 
     <hr/>
 
-    <!--<script src="{{ url_for('static', filename= 'jQuery/jquery-3.6.1.min.js')}}"></script>
-    <script>
-      $("#footer").load("./../static/html/footer.html footer");
-    </script>
-
-    <div id="footer"></div>-->
-    <iframe src="{{ url_for('static', filename= 'html/footer.html')}}" scrolling="no" target="_top" frameborder="0" width="100%" height="60rem" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></iframe>
-    
-</body>
-</html>
+{% endblock %}

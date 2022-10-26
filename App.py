@@ -1,7 +1,5 @@
-from ast import dump
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
-
 from datetime import date
 import os
 
@@ -22,25 +20,10 @@ app.secret_key = "mysecretkey"
 picFolder = os.path.join('static', 'img')
 app.config['UPLOAD_IMG'] = picFolder
 
-#importacion de estilos
-styleFolder = os.path.join('static', 'css')
-app.config['UPLOAD_STYLE'] = styleFolder
-bootstraps = os.path.join(app.config['UPLOAD_STYLE'], 'bootstrap.min.css')
-css_body = os.path.join(app.config['UPLOAD_STYLE'], 'style-body.css')
-css_header = os.path.join(app.config['UPLOAD_STYLE'], 'style-header.css')
-css_footer = os.path.join(app.config['UPLOAD_STYLE'], 'style-footer.css')
-css_index = os.path.join(app.config['UPLOAD_STYLE'], 'style-index.css')
-css_carta = os.path.join(app.config['UPLOAD_STYLE'], 'style-carta.css')
-css_locales = os.path.join(app.config['UPLOAD_STYLE'], 'style-locales.css')
-css_faqs = os.path.join(app.config['UPLOAD_STYLE'], 'style-faqs.css')
-
-styles = {"bootstrap": bootstraps, "body": css_body, "header": css_header, "footer": css_footer, "index": css_index, "carta": css_carta, "locales": css_locales, "faqs": css_faqs}
-
-
 ##############################################################################################################HOME
 @app.route('/')
 def index():
-    return render_template('index.html', styles = styles)
+    return render_template('index.html')
 
 
 
@@ -57,7 +40,7 @@ def carta():
 
     #img = os.path.join(app.config['UPLOAD_IMG'], 'prueba.jpg')
 
-    return render_template('carta.html', carta = carta, styles = styles)
+    return render_template('carta.html', carta = carta)
 
 
 
@@ -68,7 +51,7 @@ def carta():
 ##############################################################################################################LOCALES
 @app.route('/locales')
 def locales():
-    return render_template('locales.html', styles = styles)
+    return render_template('locales.html')
 
 
 
@@ -91,7 +74,7 @@ def faqs():
     conn = mysql.connection.cursor()
     conn.execute('SELECT * FROM faqs')
     faqs = conn.fetchall()
-    return render_template('faqs.html',faqs = faqs, styles = styles)
+    return render_template('faqs.html',faqs = faqs)
 
 
 @app.route('/añadir_comentario', methods=['POST'])
@@ -138,7 +121,7 @@ def sumar_like():
 @app.route('/pedido')
 def pedido():
     return "pedido"
-    return render_template('pedido.html', styles = styles)
+    return render_template('pedido.html')
 
 
 

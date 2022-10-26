@@ -1,0 +1,28 @@
+body{
+    background-color: #1e1e1e;
+    color: #f3c319;
+    scrollbar-width:  none; /*Firefox*/
+}
+body::-webkit-scrollbar {
+    width: 0;
+}
+
+.header-icon{
+    width: 3rem;
+    height: 3rem;
+    /*border-top: 0.5rem;*/
+}
+
+.footer{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #1e1e1e;
+    /*height: 9rem;*/
+    padding: 1rem 0;
+    overflow: hidden;
+}
+
+.footer-icon{
+    width: 2rem;
+    height: 2rem;
+}
