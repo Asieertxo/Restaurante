@@ -4,6 +4,7 @@ from datetime import date
 import os
 from config import config
 from flask_login import LoginManager, login_user, logout_user, login_required
+from flask_wtf.csrf import CSRFProtect
 
 #Models y Entities
 from models.ModelUser import ModelUser
@@ -11,6 +12,8 @@ from models.entities.User import User
 
 app = Flask(__name__)
 
+#seguridad.....en __main__ se asigna la proteccion al iniciar
+csrf = CSRFProtect()
 # MySQL conn
 mysql = MySQL(app)
 login_manager_app  = LoginManager(app)
@@ -144,6 +147,10 @@ def login():
         return render_template('login.html')
 
 
+@app.route('/logout')
+def logout():
+    logout_user()
+    return render_template('index.html')
 
 
 
@@ -151,15 +158,25 @@ def login():
 
 
 
+##############################################################################################################USER
+@app.route('/user')
+@login_required
+def user():
+    return "<h1>Parte de Usuario</h1>"
 
 
 
 
 
 
-
-
+def status_401(error):
+    return redirect(url_for('login'))
+def status_404(error):
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.config.from_object(config['development'])
+    csrf.init_app(app)
+    app.register_error_handler(401, status_401)
+    app.register_error_handler(404, status_404)
     app.run()

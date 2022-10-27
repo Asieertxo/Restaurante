@@ -28,13 +28,15 @@
               <li><a href="/pedido" target="_parent" class="nav-link px-2 text-white">Pedido</a></li>
             </ul>
     
-            <div class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-              <p>{{ current_user.name }}</p>
-            </div>
-    
+
             <div class="text-end">
-              <a href="/login" class="btn btn-outline-light me-2">Login</a>
-              <a href="/login" class="btn btn-warning">Sign-up</a>
+              {% if current_user.is_authenticated: %}
+                <a class="btn btn-outline-light me-2" href="/user">{{ current_user.name }}</a>
+                <a class="btn btn-danger" href="/logout">Logout</a>
+              {% else: %}
+                <a href="/login" class="btn btn-outline-light me-2">Login</a>
+                <a href="/login" class="btn btn-success">Sign-up</a>
+              {% endif %}
             </div>
           </div>
         </div>
