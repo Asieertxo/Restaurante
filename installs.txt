@@ -1,4 +1,4 @@
-pip install virtualenv (cmd) -> instalar el entorno virtual
+pip install virtualenv (vsc) -> instalar el entorno virtual
 
 virtualenv -p python3 env(vsc) -> para añadirlo al proyecto
 

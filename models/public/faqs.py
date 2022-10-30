@@ -36,7 +36,6 @@ def faqs_py(app, mysql):
                 mensaje = request.form['mensaje']
                 likes = 0
                 fecha = date.today()
-                print(fecha)
 
                 conn = mysql.connection.cursor()
                 conn.execute('INSERT INTO faqs (nombre, apellido, email, mensaje, likes, fecha) VALUES (%s, %s, %s, %s, %s, %s)',
