@@ -8,7 +8,7 @@ def user_login_py(app, mysql, User, ModelUser):
     @app.route('/login', methods=['GET', 'POST'])
     def login():
         if request.method == 'POST':
-            user = User(0, request.form['name'], request.form['pass'])
+            user = User(0, request.form['name'], None, None, None, None, None, request.form['pass'])
             logged_user = ModelUser.login(mysql, user)
             if logged_user != None:
                 if logged_user.password:
@@ -23,6 +23,7 @@ def user_login_py(app, mysql, User, ModelUser):
         else:
             return render_template('login.html')
     
+
 
     @app.route('/logout')
     def logout():

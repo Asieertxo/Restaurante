@@ -27,7 +27,7 @@
 
             <div class="text-end">
               {% if current_user.is_authenticated: %}
-                <a class="btn btn-outline-light me-2" href="/user">{{ current_user.name }}</a>
+                <a class="btn btn-outline-light me-2" href="/user">{{ current_user.nombre }}</a>
                 <a class="btn btn-danger" href="/logout">Logout</a>
               {% else: %}
                 <a href="/login" class="btn btn-outline-light me-2">Login</a>

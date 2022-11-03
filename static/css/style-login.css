@@ -17,18 +17,17 @@
 }
 
 .form-signin .form-floating:focus-within {
-  z-index: 2;
-}
-
-.form-signin input[type="name"] {
+    z-index: 2;
     width: 100%;
     margin-bottom: 1rem;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="name"], .form-signin input[type="email"], .form-signin input[type="date"] {
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
 .form-signin input[type="password"] {
+    margin-top: 1rem;
     margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
 }

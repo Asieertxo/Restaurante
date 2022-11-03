@@ -4,31 +4,36 @@
 
 {% block content %}
 <div class="log">
-  <form class="form-signin" action="/login" method="POST">
+  <form class="form-signin" action="/register" method="POST" enctype="multipart/form-data">
     <img class="mb-4" src="{{ url_for('static', filename= 'img/burger-y.png')}}" alt="" width="72" height="72">
-
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <br />
-    {% for message in messages %}
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <strong>{{ message }}</strong>
-    </div>
-    {% endfor %}
-    {% endif %}
-    {% endwith %}
     
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
     <!--<input type="hidden" name="csrf_token" value=" csrf_token() "}>-->
 
     <div class="form-floating">
-      <input type="name" class="form-control" id="floatingInput" name="name" placeholder="username">
+      <input type="name" class="form-control" id="floatingInput" name="nombre" placeholder="Nombre">
       <label for="floatingInput">Name</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" name="pass" placeholder="Password">
-      <label for="floatingPassword">Password</label>
+      <input type="name" class="form-control" id="floatingInput" name="apellido" placeholder="Apellido">
+      <label for="floatingInput">Apellido</label>
+    </div>
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" name="email" placeholder="email">
+      <label for="floatingInput">E-mail</label>
+    </div>
+    <div class="form-floating">
+      <input type="date" class="form-control" id="floatingInput" name="nacimiento" placeholder="username">
+      <label for="floatingInput">Fecha de Nacimiento</label>
+    </div>
+    <div class="form-floating">
+      <input type="file" class="form-control" id="floatingInput" name="foto">
+      <label for="floatingInput">Foto de perfil</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" name="passw" placeholder="Contraseña">
+      <label for="floatingPassword">Contraseña</label>
     </div>
 
     <div class="checkbox mb-3">
