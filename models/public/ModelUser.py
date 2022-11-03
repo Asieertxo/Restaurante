@@ -1,4 +1,4 @@
-from .entities.User import User
+from .User import User
 
 
 class ModelUser():

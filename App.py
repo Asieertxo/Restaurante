@@ -7,8 +7,8 @@ from flask_wtf.csrf import CSRFProtect
 
 from models.public.user_login import *
 from models.public.faqs import *
-from models.ModelUser import ModelUser
-from models.entities.User import User
+from models.public.ModelUser import ModelUser
+from models.public.User import User
 
 app = Flask(__name__)
 
