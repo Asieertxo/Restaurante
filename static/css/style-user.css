@@ -1,0 +1,65 @@
+.user{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    border: 0.2rem  solid #f3c319;
+    border-radius: 1rem;
+}
+
+.user-first{
+    width: 33%;
+    text-align: center;
+}
+
+.user-first p{
+    width: 10rem;
+    width: 100%;
+    text-transform: capitalize;
+}
+
+.user-first img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 5rem;
+}
+
+.user-second{
+    width: 33%;
+    text-align: center;
+}
+
+.user-second button{
+    width: 40%;
+    background: transparent;
+    border: 0.2rem  solid red;
+    border-radius: 1rem;
+    color: red;
+    margin: 3rem;
+}
+
+.user-three{
+    width: 33%;
+    text-align: center;
+}
+
+.user-three_input{
+    margin: 0 auto;
+    background: transparent;
+    color: #f3c319;
+    outline: none;
+    border: 0.2rem  solid #f3c319;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    width: 80%;
+    margin-bottom: 1rem;
+}
+
+.user-three button{
+    width: 40%;
+    background: transparent;
+    border: 0.2rem  solid #f3c319;
+    border-radius: 1rem;
+    color: #f3c319;
+}

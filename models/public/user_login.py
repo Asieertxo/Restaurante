@@ -48,9 +48,7 @@ def user_login_py(app, mysql, User, ModelUser):
                     exist = False
             
             foto = request.files['foto']
-            print(foto)
             b64_foto = base64.b64encode(foto.read())
-            print(b64_foto)
 
             if (exist):
                 flash('el nombre de usuario ya existe')

@@ -72,13 +72,37 @@ user_login_py(app, mysql, User, ModelUser)
 @app.route('/user')
 @login_required
 def user():
-    return "<h1>Parte de Usuario</h1>"
+    return render_template('user.html')
 
 
+@app.route('/borrarusuario', methods=['POST'])
+@login_required
+def borrarusuario():
+    conn = mysql.connection.cursor()
+    sql = "DELETE FROM users WHERE id = '{}'".format(request.form['id'])
+    conn.execute(sql)
+    mysql.connection.commit()
+    return redirect(url_for('logout'))
 
+@app.route('/cambiarcontraseña' , methods=['POST'])
+@login_required
+def cambiarcontraseña():
+    conn = mysql.connection.cursor()
+    sql = "SELECT id FROM users WHERE id = '{}'".format(request.form['id'])
+    conn.execute(sql)
+    row = conn.fetchone()
 
-
-
+    print(request.form['passactual'])
+    print(request.form['passactualhidden'])
+    if(User.check_password(request.form['passactual'], request.form['passactualhidden'])):
+        conn = mysql.connection.cursor()
+        sql = 'UPDATE users SET pass = %s WHERE id = %s)',
+        (request.form['passnueva'], request.form['id'])
+        conn.execute(sql)
+        mysql.connection.commit()
+    else:
+        flash('Contraseña incorrecta...')
+        return redirect(url_for('user'))
 
 
 
