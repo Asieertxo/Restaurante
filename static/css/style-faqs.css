@@ -19,7 +19,7 @@
     border-radius: 5rem;
     border: 2rem;
     width: 80%;
-    height: 15rem;
+    min-height: 15rem;
     padding: 2rem;
     position: relative;
     border-top: 1rem;
@@ -33,7 +33,7 @@
 }
 
 .faqs-tarjeta > p{
-    height: 70%;
+    min-height: 70%;
     border-radius: 2.5rem;
     border: 0.2rem  solid #f3c319;
     padding: 1.5rem 1rem;
@@ -95,6 +95,7 @@ input[type="email"] {
 }
 .faqs-formulario textarea{
     width: 80%;
+    height: 15rem;
     margin-bottom: 1rem;
 }
 
