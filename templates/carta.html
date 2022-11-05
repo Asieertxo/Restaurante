@@ -20,30 +20,53 @@
 
       <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 carta-tarjetas">
         {% for plato in carta %}
-          <div class="feature col carta-tarjeta">
-            <img class="carta-photo" src="{{ url_for('static', filename= 'img/' + plato.1 + '.jpg')}}">
-            <p class="fs-2 carta-nombre">{{ plato.1 }}</p>
-            <p class="carta-descrip">{{ plato.3 }}</p>
-            {%if(plato.4 == "gluten/lactosa")%}
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/gluten.png')}}">
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/lactosa.png')}}">
-            {%endif%}
-            {%if(plato.4 == "lactosa")%}
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/freegluten.png')}}">
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/lactosa.png')}}">
-            {%endif%}
-            {%if(plato.4 == "gluten")%}
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/gluten.png')}}">
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/freelactosa.png')}}">
-            {%endif%}
-            {%if(plato.4 == "free")%}
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/freegluten.png')}}">
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/freelactosa.png')}}">
-            {%endif%}
-            <p class="carta-precio">{{ plato.5 }}€</p>
-          </div>
+          {% if (plato.2 == "hamburguesa") %}
+            <div class="feature col carta-tarjeta">
+              <img class="carta-photo" src="{{ url_for('static', filename= 'img/' + plato.1 + '.jpg')}}">
+              <p class="fs-2 carta-nombre">{{ plato.1 }}</p>
+              <p class="carta-descrip">{{ plato.3 }}</p>
+              {%if(plato.4 == "gluten/lactosa")%}
+                <img class="carta-icon" src="{{ url_for('static', filename= 'img/gluten.png')}}">
+                <img class="carta-icon" src="{{ url_for('static', filename= 'img/lactosa.png')}}">
+              {%endif%}
+              {%if(plato.4 == "lactosa")%}
+                <img class="carta-icon" src="{{ url_for('static', filename= 'img/freegluten.png')}}">
+                <img class="carta-icon" src="{{ url_for('static', filename= 'img/lactosa.png')}}">
+              {%endif%}
+              {%if(plato.4 == "gluten")%}
+                <img class="carta-icon" src="{{ url_for('static', filename= 'img/gluten.png')}}">
+                <img class="carta-icon" src="{{ url_for('static', filename= 'img/freelactosa.png')}}">
+              {%endif%}
+              {%if(plato.4 == "free")%}
+                <img class="carta-icon" src="{{ url_for('static', filename= 'img/freegluten.png')}}">
+                <img class="carta-icon" src="{{ url_for('static', filename= 'img/freelactosa.png')}}">
+              {%endif%}
+              <p class="carta-precio">{{ plato.5 }}€</p>
+            </div>
+          {% endif %}
         {% endfor %}
       </div>
+
+
+      <hr/>
+
+      <div class="carta-seccion">
+        <h2>Entrantes</h2>
+      </div>
+
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 carta-tarjetas">
+        {% for plato in carta %}
+          {% if (plato.2 == "entrantes") %}
+            <div class="feature col carta-tarjeta">
+              <img class="carta-photo" src="{{ url_for('static', filename= 'img/' + plato.1 + '.jpg')}}">
+              <p class="fs-2 carta-nombre">{{ plato.1 }}</p>
+              <p class="carta-descrip">{{ plato.3 }}</p>
+              <p class="carta-precio">{{ plato.5 }}€</p>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
 
       <hr/>
 
@@ -53,30 +76,17 @@
 
       <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 carta-tarjetas">
         {% for plato in carta %}
-          <div class="feature col carta-tarjeta">
-            <img class="carta-photo" src="{{ url_for('static', filename= 'img/' + plato.1 + '.jpg')}}">
-            <p class="fs-2 carta-nombre">{{ plato.1 }}</p>
-            <p class="carta-descrip">{{ plato.3 }}</p>
-            {%if(plato.4 == "gluten/lactosa")%}
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/gluten.png')}}">
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/lactosa.png')}}">
-            {%endif%}
-            {%if(plato.4 == "lactosa")%}
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/freegluten.png')}}">
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/lactosa.png')}}">
-            {%endif%}
-            {%if(plato.4 == "gluten")%}
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/gluten.png')}}">
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/freelactosa.png')}}">
-            {%endif%}
-            {%if(plato.4 == "free")%}
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/freegluten.png')}}">
-              <img class="carta-icon" src="{{ url_for('static', filename= 'img/freelactosa.png')}}">
-            {%endif%}
-            <p class="carta-precio">{{ plato.5 }}€</p>
-          </div>
+          {% if (plato.2 == "bebida") %}
+            <div class="feature col carta-tarjeta">
+              <img class="carta-photo" src="{{ url_for('static', filename= 'img/' + plato.1 + '.jpg')}}">
+              <p class="fs-2 carta-nombre">{{ plato.1 }}</p>
+              <p class="carta-descrip">{{ plato.3 }}</p>
+              <p class="carta-precio">{{ plato.5 }}€</p>
+            </div>
+          {% endif %}
         {% endfor %}
       </div>
+    
     </div>
 
     <hr/>
