@@ -5,10 +5,10 @@ import os
 from config import config
 from flask_wtf.csrf import CSRFProtect
 
-from models.public.User import *
-from models.public.faqs import *
-from models.public.ModelUser import ModelUser
-from models.public.User import User
+from public.User import *
+from public.faqs import *
+from public.ModelUser import ModelUser
+from public.User import User
 
 app = Flask(__name__)
 
@@ -17,12 +17,6 @@ csrf = CSRFProtect()
 # MySQL conn
 mysql = MySQL(app)
 login_manager_app  = LoginManager(app)
-
-
-#importacion de la capeta de imagenes
-picFolder = os.path.join('static', 'img')
-app.config['UPLOAD_IMG'] = picFolder
-
 
 
 @login_manager_app.user_loader
@@ -62,6 +56,12 @@ def locales():
 
 #FAQS#########################################################################################################FAQS
 faqs_py(app, mysql)
+
+
+#LOCALES######################################################################################################LOCALES
+@app.route('/carrito')
+def carrito():
+    return render_template('carrito.html')
 
 
 #LOGIN########################################################################################################LOGIN

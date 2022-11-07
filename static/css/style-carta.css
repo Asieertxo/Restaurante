@@ -52,9 +52,27 @@
     height: 1rem;
 }
 
+.carta-preciocarro{
+    display: flex;
+    justify-content: center;
+}
+
 .carta-precio{
     /*background-color: white;*/
     /*text-align: center;*/
     font-size: 2rem;
     color: white;
+}
+
+.carta-btn{
+    width: 2rem;
+    height: 2rem;
+    margin-top: 0.5rem;
+    background-color: transparent;
+    border: none;
+}
+
+.carta-btn_img{
+    width: 2rem;
+    height: 2rem;
 }

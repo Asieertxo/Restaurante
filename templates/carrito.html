@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block style %}carrito{% endblock %}
+
+{% block content %}
+    <script src="{{ url_for('static', filename= 'js/carrito.js') }}"></script>
+    <div class="container separar">
+        <div class="carrito-general">
+            <p>Vista General</p>
+            <script>
+                carritoTotal()
+            </script>
+        </div>
+        <div class="carrito-tarjetas">
+            <script>
+                renderCarrito()
+            </script>
+        </div>
+        
+    </div>
+{% endblock %}
