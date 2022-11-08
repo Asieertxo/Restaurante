@@ -1,5 +1,6 @@
 .separar{
     display: flex;
+    margin-bottom: 5rem;
 }
 
 .carrito-general{
@@ -33,6 +34,13 @@
 
 .carrito-tarjeta_cant{
     margin-top: -1rem;
+    background-color: white;
+    border: none;
+    text-align: center;
+    padding-left: 1rem;
+    font-weight: 700;
+    border-radius: 2rem;
+    width: 5rem;
 }
 
 .carrito-tarjeta_eliminar{

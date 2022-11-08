@@ -33,15 +33,10 @@ function addToCarrito(newItem){
     var carritoLocal = []
 
     if(typeof(Storage) !== "undefined"){
-        console.log(carrito)
-        console.log('2')
         carritoLocal = JSON.parse(localStorage.getItem("carrito"))
         if(carritoLocal  !== null){//si hay algo almacenado lo ponemos como carrito y añadimos articulo
-            console.log('3')
             carrito = carritoLocal
             for(let i=0; i<carrito.length; i++){
-                console.log(carrito[i].name)
-                console.log(newItem.name)
                 if(carrito[i].name === newItem.name){
                     carrito[i].cant ++
                     localStorage.setItem("carrito", JSON.stringify(carrito))//hay que almacenar antes de salir
@@ -50,11 +45,8 @@ function addToCarrito(newItem){
             }
             carrito.push(newItem)
         }else{//si no hay nada guardado, creamos un nuevo carrito y le añadimos el articulo
-            console.log('4')
             carrito = [newItem];
         }
-
-        console.log(carrito)
         localStorage.setItem("carrito", JSON.stringify(carrito))
     }else{
         console.log("No hay localStorage")
@@ -63,14 +55,10 @@ function addToCarrito(newItem){
 
 
 
-
-
-
-
-
 function renderCarrito(){
     carrito = JSON.parse(localStorage.getItem("carrito"))
     var template = []
+    let id = 0;
 
     carrito.map(item => {
         precio = item.price.substring(0, item.price.length - 1)
@@ -78,12 +66,13 @@ function renderCarrito(){
         template.push(
             '<div class="carrito-tarjeta">' +
             '<img class="carrito-tarjeta_img" src=' + item.img + '>' +
-            '<p class="carrito-tarjeta_nombre">' + item.name + '</p>' +
-            '<input class="carrito-tarjeta_cant" type="number" value="' + item.cant + '">' +
+            '<p class="carrito-tarjeta_nombre" id = name-' + id + '>' + item.name + '</p>' +
+            '<input class="carrito-tarjeta_cant" id = cant-' + id + ' type="number" min="1" onchange="cantItem(' + id +')" value="' + item.cant + '">' +
             '<p class="carrito-tarjeta_precio">' + (productPrice).toFixed(2) + ' €</p>' +
-            '<button class="btn btn-danger carrito-tarjeta_eliminar">x</button>' +
+            '<button class="btn btn-danger carrito-tarjeta_eliminar" onclick="deleteItem(' + id +')">x</button>' +
             '</div>'
         )
+        id++
     })
     var htmlString = template.join('')
     document.write(htmlString)
@@ -104,4 +93,31 @@ function carritoTotal(){
     )
 
     document.write(template)
+}
+
+
+
+function cantItem(id){
+    const itemName = document.getElementById('name-'+id).textContent
+    const itemCant = document.getElementById('cant-'+id).value
+    console.log(itemName)
+    console.log(itemCant)
+    carrito = JSON.parse(localStorage.getItem("carrito"))
+    carrito.map(item => {
+        if(item.name === itemName){
+            item.cant = itemCant
+        }
+    })
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+    location.reload()
+}
+
+
+
+function deleteItem(id){
+    const itemName = document.getElementById('name-'+id).textContent
+    carrito = JSON.parse(localStorage.getItem("carrito"))
+    const newCarrito = carrito.filter(item => item.name != itemName)
+    localStorage.setItem("carrito", JSON.stringify(newCarrito))
+    location.reload()
 }
