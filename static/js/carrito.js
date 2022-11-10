@@ -1,11 +1,10 @@
 const Clickbutton = document.querySelectorAll('.carta-btn')
 let carrito = []
+let totalPagar = []
 
 Clickbutton.forEach(btn => {
     btn.addEventListener('click', addItem)
 })
-
-
 
 
 
@@ -26,10 +25,7 @@ function addItem(e){
     addToCarrito(newItem)
 }
 
-
-
 function addToCarrito(newItem){
-    var carrito = []
     var carritoLocal = []
 
     if(typeof(Storage) !== "undefined"){
@@ -52,8 +48,6 @@ function addToCarrito(newItem){
         console.log("No hay localStorage")
     }
 }
-
-
 
 function renderCarrito(){
     carrito = JSON.parse(localStorage.getItem("carrito"))
@@ -78,30 +72,44 @@ function renderCarrito(){
     document.write(htmlString)
 }
 
-
-
 function carritoTotal(){
+    totalPagar = JSON.parse(localStorage.getItem("totalPagar"))
+    let localDescuento = 1//es por lo que multiplica, por defecto, luego se comprueba
+
+    if(totalPagar !== null){
+        if(totalPagar.descuento !== 0){
+            localDescuento = totalPagar.descuento
+        }else{
+            localDescuento = 1//es por lo que multiplica el total
+        }
+    }
+    
     let total = 0;
     var carrito  = JSON.parse(localStorage.getItem("carrito"))
     carrito.forEach((item) => {
         precio = item.price.substring(0, item.price.length - 1)
         total = (precio * item.cant) + total
     })
+
+    totalPagar = {
+        subtotal: parseFloat((total).toFixed(2)),
+        servicio: 0,
+        transporte: 0,
+        descuento: localDescuento,
+        total: parseFloat((total).toFixed(2))
+    }
+    localStorage.setItem("totalPagar", JSON.stringify(totalPagar))
+
     var template = []
     template.push(
-        '<p>' + (total).toFixed(2) + ' €</p>'
+        '<p>' + (totalPagar.subtotal).toFixed(2) + ' €</p>'
     )
-
     document.write(template)
 }
-
-
 
 function cantItem(id){
     const itemName = document.getElementById('name-'+id).textContent
     const itemCant = document.getElementById('cant-'+id).value
-    console.log(itemName)
-    console.log(itemCant)
     carrito = JSON.parse(localStorage.getItem("carrito"))
     carrito.map(item => {
         if(item.name === itemName){
@@ -112,12 +120,109 @@ function cantItem(id){
     location.reload()
 }
 
-
-
 function deleteItem(id){
     const itemName = document.getElementById('name-'+id).textContent
     carrito = JSON.parse(localStorage.getItem("carrito"))
     const newCarrito = carrito.filter(item => item.name != itemName)
     localStorage.setItem("carrito", JSON.stringify(newCarrito))
+    location.reload()
+}
+
+function servicio(){
+    totalPagar = JSON.parse(localStorage.getItem("totalPagar"))
+    totalPagar.servicio = parseFloat((totalPagar.total*10/100).toFixed(2))
+    totalPagar.total = totalPagar.total + totalPagar.servicio
+    localStorage.setItem("totalPagar", JSON.stringify(totalPagar))
+
+    var template = []
+    template.push(
+        '<p>' + (totalPagar.servicio).toFixed(2) + ' €</p>'
+    )
+    document.write(template)
+}
+
+function randTrasnport(){
+    pTraspot =  Math.random() * (3 - 1 + 1) + 1
+    totalPagar = JSON.parse(localStorage.getItem("totalPagar"))
+    totalPagar.transporte = parseFloat((pTraspot).toFixed(2))
+    totalPagar.total = totalPagar.total + totalPagar.transporte
+    localStorage.setItem("totalPagar", JSON.stringify(totalPagar))
+
+    var template = []
+    template.push(
+        '<p>' + (totalPagar.transporte).toFixed(2) + ' €</p>'
+    )
+    document.write(template)
+}
+
+function pagoTotal(){
+    var template = []
+    totalPagar = JSON.parse(localStorage.getItem("totalPagar"))
+
+    if(totalPagar.descuento === "T"){
+        template.push(
+            '<p>' + (totalPagar.total - totalPagar.transporte).toFixed(2) + ' €</p>'
+        )
+    }else{
+        template.push(
+            '<p>' + (totalPagar.total * totalPagar.descuento).toFixed(2) + ' €</p>'
+        )
+    }
+    document.write(template)
+
+    if(pagoTotal.descuento !== 0){
+        totalPagar.descuento = 0
+        localStorage.setItem("totalPagar", JSON.stringify(totalPagar))
+    }
+}
+
+function restaDescuento(){
+    var template = []
+    totalPagar = JSON.parse(localStorage.getItem("totalPagar"))
+
+    if(totalPagar.descuento !== 1){
+        if(totalPagar.descuento === "T"){
+            template.push(
+                '<div>' +
+                    '<p>' + Descuento + '</p>' +
+                    '<p>' + (totalPagar.transporte).toFixed(2) + ' €</p>' +
+                '</div>'
+            )
+        }else{
+            template.push(
+                '<div>' +
+                    '<p>' + Descuento + '</p>' +
+                    '<p>' + (totalPagar.descuento - totalPagar.total).toFixed(2) + ' €</p>' +
+                '</div>'
+            )
+        }
+        
+    }else{
+        template.push(
+            '<p> Hola </p>'
+        )
+    }
+    document.write(template)
+}
+
+
+function descuento(){
+    let descu = document.getElementById('descuento').value
+    totalPagar = JSON.parse(localStorage.getItem("totalPagar"))
+    switch (descu){
+        case "Burger10":
+            totalPagar.descuento = 0.9
+            break
+        case "Burger20":
+            totalPagar.descuento = 0.8
+            break
+        case "Trasporte":
+            totalPagar.descuento = "T"
+            break
+        default:
+            totalPagar.descuento = 0
+            break
+    }
+    localStorage.setItem("totalPagar", JSON.stringify(totalPagar))
     location.reload()
 }

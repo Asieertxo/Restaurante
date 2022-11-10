@@ -7,15 +7,30 @@
     <div class="container separar">
         <div class="carrito-general">
             <p>Vista General</p>
-            <script>
-                carritoTotal()
-            </script>
+            <div>
+                <p>Subtotal</p>
+                <script>carritoTotal()</script>
+            </div>
+            <div>
+                <p>Servicio</p>
+                <script>servicio()</script>
+            </div>
+            <div>
+                <p>Transporte</p>
+                <script>randTrasnport()</script>
+            </div>
+            <input id="descuento" type="text" placeholder="Codigo descuento">
+            <button onclick="descuento()">Aplicar</button>
+            <!--<script>restaDescuento()</script>-->
+            <div>
+                <p>TOTAL</p>
+                <script>pagoTotal()</script>
+            </div>
         </div>
         <div class="carrito-tarjetas">
             <script>
                 renderCarrito()
             </script>
         </div>
-        
     </div>
 {% endblock %}

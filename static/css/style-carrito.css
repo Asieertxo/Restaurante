@@ -1,3 +1,5 @@
+* {margin:0;padding:0;border: 0 none;position: relative;}
+
 .separar{
     display: flex;
     margin-bottom: 5rem;
@@ -9,6 +11,39 @@
     border-radius: 2rem;
     padding: 0.5rem 0;
     margin: 1rem 1rem;
+    min-height: 75vh;
+    padding: 3rem;
+    position: relative;
+}
+
+.carrito-general > * {
+    display: flex;
+    justify-content: space-between;
+}
+
+.carrito-general > p {
+    margin-bottom: 3rem;
+}
+
+.carrito-general > div:before {
+    content: '';
+    position: absolute;
+    bottom: 1.3rem;
+    width: 100%;
+    height: 0;
+    line-height: 0;
+    border-bottom: 2px dotted #ddd;
+}
+
+.carrito-general > div > p{
+    background-color: #212429;
+}
+
+.carrito-general > input{
+    width: 100%;
+    margin: 2rem 0 3rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
 }
 
 .carrito-tarjetas{
