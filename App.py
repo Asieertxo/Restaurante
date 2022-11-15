@@ -60,6 +60,7 @@ faqs_py(app, mysql)
 
 #LOCALES######################################################################################################LOCALES
 @app.route('/carrito')
+@login_required
 def carrito():
     return render_template('carrito.html')
 

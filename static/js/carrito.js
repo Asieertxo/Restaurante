@@ -176,30 +176,25 @@ function pagoTotal(){
     }
 }
 
-function restaDescuento(){
+function verDescuento(){
     var template = []
     totalPagar = JSON.parse(localStorage.getItem("totalPagar"))
 
+    console.log(totalPagar)
     if(totalPagar.descuento !== 1){
         if(totalPagar.descuento === "T"){
             template.push(
-                '<div>' +
-                    '<p>' + Descuento + '</p>' +
-                    '<p>' + (totalPagar.transporte).toFixed(2) + ' €</p>' +
-                '</div>'
+                '<p->' + (totalPagar.transporte).toFixed(2) + ' €</p>'
             )
         }else{
             template.push(
-                '<div>' +
-                    '<p>' + Descuento + '</p>' +
-                    '<p>' + (totalPagar.descuento - totalPagar.total).toFixed(2) + ' €</p>' +
-                '</div>'
+                '<p->' + ((totalPagar.total * totalPagar.descuento) - totalPagar.total).toFixed(2) + ' €</p>'
             )
         }
         
     }else{
         template.push(
-            '<p> Hola </p>'
+            '<p>0 €</p>'
         )
     }
     document.write(template)
@@ -212,15 +207,19 @@ function descuento(){
     switch (descu){
         case "Burger10":
             totalPagar.descuento = 0.9
+            console.log('10%')
             break
         case "Burger20":
             totalPagar.descuento = 0.8
+            console.log('20%')
             break
         case "Trasporte":
             totalPagar.descuento = "T"
+            console.log('T')
             break
         default:
             totalPagar.descuento = 0
+            console.log('None')
             break
     }
     localStorage.setItem("totalPagar", JSON.stringify(totalPagar))
