@@ -3,7 +3,14 @@ from flask_mysqldb import MySQL
 from flask_login import LoginManager, login_user, logout_user, login_required
 import os
 from config import config
-from flask_wtf.csrf import CSRFProtect
+#from flask_wtf.csrf import CSRFProte
+import collections
+try:
+    from collections import abc
+    collections.MutableMapping = abc.MutableMapping
+except:
+    pass
+from flask_socketio import SocketIO, send
 
 from public.User import *
 from public.faqs import *
@@ -13,7 +20,7 @@ from public.User import User
 app = Flask(__name__)
 
 #seguridad.....en __main__ se asigna la proteccion al iniciar
-csrf = CSRFProtect()
+#csrf = CSRFProtect()
 # MySQL conn
 mysql = MySQL(app)
 login_manager_app  = LoginManager(app)
@@ -73,8 +80,14 @@ user_login_py(app, mysql, User, ModelUser)
 user_user_py(app, mysql, User, ModelUser)
 
 
+app.config['SECRET'] = "secret!123"
+socketio = SocketIO(app, cors_allowed_origins="*")
 
-
+@socketio.on('message')
+def handle_message(message):
+    print("Received message: " + message)
+    if message != "User connected":
+        send(message, broadcast=True)
 
 
 
@@ -92,4 +105,4 @@ if __name__ == '__main__':
     #csrf.init_app(app) temporalmente
     app.register_error_handler(401, status_401)
     app.register_error_handler(404, status_404)
-    app.run()
+    socketio.run(app)
