@@ -43,9 +43,10 @@
               {%endif%}
               <div class="carta-preciocarro">
                 <p class="carta-precio">{{ plato.5 }}€</p>
+                {% if current_user.is_authenticated: %}
                 <button class="carta-btn"><img class="carta-btn_img" src="{{ url_for('static', filename= 'img/carrito.png')}}"></button>
+                {%endif%}
               </div>
-              
             </div>
           {% endif %}
         {% endfor %}
@@ -81,7 +82,12 @@
                 <img class="carta-icon" src="{{ url_for('static', filename= 'img/freegluten.png')}}">
                 <img class="carta-icon" src="{{ url_for('static', filename= 'img/freelactosa.png')}}">
               {%endif%}
-              <p class="carta-precio">{{ plato.5 }}€</p>
+              <div class="carta-preciocarro">
+                <p class="carta-precio">{{ plato.5 }}€</p>
+                {% if current_user.is_authenticated: %}
+                <button class="carta-btn"><img class="carta-btn_img" src="{{ url_for('static', filename= 'img/carrito.png')}}"></button>
+                {%endif%}
+              </div>
             </div>
           {% endif %}
         {% endfor %}
@@ -101,7 +107,12 @@
               <img class="carta-photo" src="{{ url_for('static', filename= 'img/' + plato.1 + '.jpg')}}">
               <p class="fs-2 carta-nombre">{{ plato.1 }}</p>
               <p class="carta-descrip">{{ plato.3 }}</p>
-              <p class="carta-precio">{{ plato.5 }}€</p>
+              <div class="carta-preciocarro">
+                <p class="carta-precio">{{ plato.5 }}€</p>
+                {% if current_user.is_authenticated: %}
+                <button class="carta-btn"><img class="carta-btn_img" src="{{ url_for('static', filename= 'img/carrito.png')}}"></button>
+                {%endif%}
+              </div>
             </div>
           {% endif %}
         {% endfor %}
