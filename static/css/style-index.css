@@ -1,0 +1,152 @@
+.index-first {
+    height: 25rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.index-first > h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 5rem;
+    font-family: cursive;
+    font-weight: 700;
+}
+
+
+
+.index-first > span {
+    display: block;
+    font-family: monospace;
+    font-size: 2rem;
+    white-space: nowrap;
+    /*border-right: 4px solid;*/
+    width: 11rem;
+    color: rgba(255, 255, 255, 0.5);
+
+    animation: typing 5s steps(12),
+    blink .5s infinite step-end alternate;
+    overflow: hidden;
+}
+
+.index-first > .s-1 {
+    position: absolute;
+    top: 25%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+
+    transform: rotate(30deg);
+}
+
+.index-first > .s-2 {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+
+    transform: rotate(-10deg);
+}
+
+.index-first > .s-3 {
+    position: absolute;
+    top: 70%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+
+    transform: rotate(10deg);
+}
+
+.index-first > .s-4 {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    transform: rotate(-10deg);
+}
+
+.index-first > .s-5 {
+    position: absolute;
+    top: 25%;
+    left: -2%;
+    transform: translate(-50%, -50%);
+
+    transform: rotate(-90deg);
+}
+
+.index-first > .s-6 {
+    position: absolute;
+    top: 75%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+
+    transform: rotate(-10deg);
+}
+
+@keyframes typing {
+    from { 
+        width: 0;
+    }
+}
+
+@keyframes blink {
+    50% { 
+        border-color: transparent;
+    }
+}
+
+/*Second*/
+
+.index-second {
+    display: flex;
+    height: 42rem;
+    padding: 5rem 0;
+}
+
+.index-second_left {
+    background-image: url(./../img/movil.svg);
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 40%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.index-second_left > img {
+    width: 12rem;
+    height: 15rem;
+}
+
+.index-second_right {
+    height: 100%;
+    width: 55%;
+    padding-top: 5rem;
+    text-align: center;
+    background-color: #f3c4199f;
+    border-radius: 5rem;
+}
+
+.index-second_right > * {
+    color: black;
+}
+
+.index-second_icons {
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+}
+
+.index-second_icon {
+    width: 30%;
+}
+
+.index-second_icon > img {
+    width: 5rem;
+    height: 5rem;
+}

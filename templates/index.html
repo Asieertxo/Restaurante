@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
+{% block style %}index{% endblock %}
 
 {% block content %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         $(document).ready(function() {
             console.log("hola")
             var socket = io.connect("http://localhost:5000");
@@ -22,12 +23,51 @@
             });
 
         });
-    </script>
-    </script>
-    <div id="messages">
+    </script>-->
+    <!--<div id="messages">
 
     </div>
     <input type="text" id="username" placeholder="username">
     <input type="text" id="message" placeholder="message">
-    <button id="sendBtn">Send</button>
+    <button id="sendBtn">Send</button>-->
+
+    <div class="container">
+        <div class="index-first">
+            <h1>Asier's Burger</h1>
+            <span class="s-1">Chorreoo..</span>
+            <span class="s-2">ÑAM..ÑAM!!</span>
+            <span class="s-3">The Besttt</span>
+            <span class="s-4">Parrillaa.</span>
+            <span class="s-5">Buey Wagyu</span>
+            <span class="s-6">Buey Kobe </span>
+        </div>
+
+        <hr/>
+
+        <div class="index-second">
+            <div class="index-second_left">
+                <img src="./../static/img/QR.png">
+            </div>
+            <div class="index-second_right">
+                <h2>Descarga nuestra aplicacion</h2>
+                <p>Las mejores ofertas de nuestros productos,</p>
+                <p>acumula puntos y</p>
+                <p>canjealos por recompensas</p>
+                <div class="index-second_icons">
+                    <div class="index-second_icon">
+                        <img src="./../static/img/moneda.png">
+                        <p>Monedas</p>
+                    </div>
+                    <div class="index-second_icon">
+                        <img src="./../static/img/monedas.png">
+                        <p>Acumula</p>
+                    </div>
+                    <div class="index-second_icon">
+                        <img src="./../static/img/regalo.png">
+                        <p>Recompensas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

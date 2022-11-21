@@ -83,11 +83,11 @@ user_user_py(app, mysql, User, ModelUser)
 app.config['SECRET'] = "secret!123"
 socketio = SocketIO(app, cors_allowed_origins="*")
 
-@socketio.on('message')
-def handle_message(message):
-    print("Received message: " + message)
-    if message != "User connected":
-        send(message, broadcast=True)
+#@socketio.on('message')
+#def handle_message(message):
+#    print("Received message: " + message)
+#    if message != "User connected":
+#        send(message, broadcast=True)
 
 
 
@@ -104,5 +104,5 @@ if __name__ == '__main__':
     app.config.from_object(config['development'])
     #csrf.init_app(app) temporalmente
     app.register_error_handler(401, status_401)
-    app.register_error_handler(404, status_404)
+    app.register_error_handler(404, status_404)    
     socketio.run(app)
