@@ -132,6 +132,7 @@
 
 .index-second_right > * {
     color: black;
+    text-decoration: dotted;
 }
 
 .index-second_icons {

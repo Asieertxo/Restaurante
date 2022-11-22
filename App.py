@@ -16,6 +16,7 @@ from public.User import *
 from public.faqs import *
 from public.ModelUser import ModelUser
 from public.User import User
+from public.chatbot import Chatbot
 
 app = Flask(__name__)
 
@@ -83,11 +84,10 @@ user_user_py(app, mysql, User, ModelUser)
 app.config['SECRET'] = "secret!123"
 socketio = SocketIO(app, cors_allowed_origins="*")
 
-#@socketio.on('message')
-#def handle_message(message):
-#    print("Received message: " + message)
-#    if message != "User connected":
-#        send(message, broadcast=True)
+@socketio.on('message')
+def handle_message(message):
+    if message != "User connected":
+        send(Chatbot(message), broadcast=True)
 
 
 
