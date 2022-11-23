@@ -21,8 +21,8 @@
       <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 carta-tarjetas">
         {% for plato in carta %}
           {% if (plato.2 == "hamburguesa") %}
-            <div class="feature col carta-tarjeta">
-              <img class="carta-photo" src="{{ url_for('static', filename= 'img/' + plato.1 + '.jpg')}}">
+            <div class="feature col carta-tarjeta" id="tarjeta{{ plato.0 }}">
+              <a href="#popup{{ plato.0 }}"><img class="carta-photo" src="{{ url_for('static', filename= 'img/' + plato.1 + '.jpg')}}"></a>
               <p class="fs-2 carta-nombre">{{ plato.1 }}</p>
               <p class="carta-descrip">{{ plato.3 }}</p>
               {%if(plato.4 == "gluten/lactosa")%}
@@ -46,6 +46,17 @@
                 {% if current_user.is_authenticated: %}
                 <button class="carta-btn"><img class="carta-btn_img" src="{{ url_for('static', filename= 'img/carrito.png')}}"></button>
                 {%endif%}
+              </div>
+            </div>
+
+            <div id="popup{{ plato.0 }}" class="overlay">
+              <div class="popup">
+                <h2>Hamburguesas</h2>
+                <a class="close" href="#tarjeta{{ plato.0 }}">&times;</a>
+                <img class="carta-photo" src="{{ url_for('static', filename= 'img/' + plato.1 + '.jpg')}}">
+                <div class="content">
+                  Thank to pop me out of that button, but now i'm done so you can close this window.
+                </div>
               </div>
             </div>
           {% endif %}
