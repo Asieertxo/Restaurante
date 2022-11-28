@@ -22,12 +22,25 @@
     border: 2rem;
     width: 30%;
     text-align: center;
+    transform: scale(1);
+    transition: all 0.5s ease-in-out;
 }
 
-.carta-tarjeta > a{
+.carta-tarjeta:hover{
+    transform: scale(1.05);
+    transition: all 0.5s ease-in-out;
+    background-color: rgba(243, 196, 25, 0.2);
+}
+
+/*.carta-tarjeta:hover > .carta-tarjeta {
+    transform: scale(0.9);
+    transition: all 0.5s ease-in-out;
+}*/
+
+/*.carta-tarjeta > a{
     cursor: pointer;
     transition: a 0.3s ease-out;
-}
+}*/
 
 .carta-photo{
     width: 90%;
@@ -83,7 +96,7 @@
 }
 
 
-.overlay {
+/*.overlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -124,4 +137,4 @@
   .popup .content {
     max-height: 30%;
     overflow: auto;
-  }
+  }*/
