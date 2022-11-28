@@ -37,10 +37,6 @@ def load_user(id):
 
 
 
-
-
-
-
 #HOME##########################################################################################################HOME
 @app.route('/')
 def index():
@@ -53,6 +49,7 @@ def carta():
     conn = mysql.connection.cursor()
     conn.execute('SELECT * FROM carta')
     carta = conn.fetchall()
+
     return render_template('carta.html', carta = carta)
 
 

@@ -42,12 +42,12 @@ def user_login_py(app, mysql, User, ModelUser):
                     return redirect(url_for('index'))
                 else:
                     flash('Contraseña incorrecta...')
-                    return redirect('index.html/#popLogin')
+                    return redirect(url_for('login'))
             else:
                 flash('Usuario no encontrado...')
-                return redirect('index.html/#popLogin')
+                return redirect(url_for('login'))
         else:
-            return render_template('index.html')
+            return render_template('login.html')
     
 
 

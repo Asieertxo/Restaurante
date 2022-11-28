@@ -10,18 +10,17 @@
 </head>
 <body>
     <script>
-      function showHide(e){
-        e.preventDefault();
-        e.stopPropagation();
-        if(div.style.display == "none"){
-          div.style.display = "block";
-        } else if(div.style.display == "block"){
-          div.style.display = "none";
-        }
+      function open_popUp(){
+        const popLogin = document.querySelector(".popLogin")
+        popLogin.style.visibility = "visible"
       }
 
-      
+      function close_popUp(){
+        const popLogin = document.querySelector(".popLogin")
+        popLogin.style.visibility = "hidden"
+      }  
     </script>
+
     <header class="p-3 text-bg-dark">
         <div class="container">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -46,13 +45,14 @@
                 <a class="btn btn-outline-light me-2" href="/user">{{ current_user.nombre }}</a>
                 <a class="btn btn-danger" href="/logout">Logout</a>
               {% else: %}
-                <a href="./#popLogin" class="btn btn-outline-light me-2">Login</a>
+                <button onclick="open_popUp()" class="btn btn-outline-light me-2">Login</button>
                 <a href="/register" class="btn btn-success">Sign-up</a>
 
 
 
                 <!--PopUp del Login-->
-                <a><div id="popLogin" class="popLogin">
+                <div id="popLogin" class="popLogin">
+                  <a onclick="close_popUp()" class="popclose-top"></a>
                   <form class="popform-signin" action="/login" method="POST">
                     
                     {% with messages = get_flashed_messages() %}
@@ -84,7 +84,7 @@
                     </div>
                     <button class="w-100 btn btn-lg btn-warning" type="submit">Sign in</button>
                   </form>
-                </div></a>
+                </div>
                 <!--PopUp del Login-->
 
               {% endif %}
