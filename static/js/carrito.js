@@ -225,3 +225,14 @@ function descuento(){
     localStorage.setItem("totalPagar", JSON.stringify(totalPagar))
     location.reload()
 }
+
+function savecarrito(){
+    var savecarrito = JSON.stringify(JSON.parse(localStorage.getItem("carrito")))
+
+    var template = []
+
+    template.push(
+        "<input type='hidden' name='carrito' value='" + savecarrito + "'></input>"
+    )
+    document.write(template)
+}

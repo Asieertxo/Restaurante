@@ -5,12 +5,14 @@ import os
 from config import config
 #from flask_wtf.csrf import CSRFProte
 import collections
+import json
 try:
     from collections import abc
     collections.MutableMapping = abc.MutableMapping
 except:
     pass
 from flask_socketio import SocketIO, send
+from reportlab.pdfgen import canvas
 
 from public.User import *
 from public.faqs import *
@@ -69,6 +71,35 @@ faqs_py(app, mysql)
 def carrito():
     return render_template('carrito.html')
 
+@app.route('/savecarrito', methods=['POST'])
+@login_required
+def savecarrito():
+    c = canvas.Canvas("Prueba.pdf")
+    c.setFont("Helvetica-Bold", 20)
+    c.drawString(30,750, "ASIER BURGER`S")
+    c.setFont("Helvetica", 10)
+    c.drawString(30,730, "Las Rozas de Madrid, Madrid")
+    c.drawString(30,710, "Telefono: 901142536")
+    c.drawString(30,690, "Fax: 654844963")
+
+    c.setFont("Helvetica-Bold", 10)
+    c.drawString(30,660, "Para:")
+    c.setFont("Helvetica", 10)
+    c.drawString(30,640, "Nombre: Asier Garcia")
+    c.drawString(30,620, "Email: asier@gmail.com")
+    c.drawString(30,600, "Telefono: 644355874")
+    c.drawString(30,580, "Direccion: Calle de al lado")
+    c.drawString(30,560, "Ciudad, CP: Las Rozas de Madrid, 28231")
+    c.drawString(30,540, "Telefono: 644355847")
+
+    c.setFont("Helvetica-Bold", 10)
+    c.drawString(30,510, "Comentarios o instrucciones especiales:")
+
+
+    c.save()
+
+    return redirect(url_for('carrito'))
+
 
 #LOGIN########################################################################################################LOGIN
 user_login_py(app, mysql, User, ModelUser)
@@ -101,5 +132,5 @@ if __name__ == '__main__':
     app.config.from_object(config['development'])
     #csrf.init_app(app) temporalmente
     app.register_error_handler(401, status_401)
-    app.register_error_handler(404, status_404)    
+    app.register_error_handler(404, status_404)        
     socketio.run(app)
