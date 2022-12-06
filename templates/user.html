@@ -6,7 +6,7 @@
 <div class="container">
     <div class="user">
         <div class="user-first">
-            {% with foto = current_user.foto.decode('UTF-8') %}
+            {% with foto = current_user.foto %} <!--.decode('UTF-8')-->
             <img src= "data:image/png;base64,{{ foto }}">
             {% endwith %}
             <p><strong>{{ current_user.nombre }} {{ current_user.apellido }} </strong></p>
