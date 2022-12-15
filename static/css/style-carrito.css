@@ -91,3 +91,13 @@
     width: 2.5rem;
     margin-top: -1rem;
 }
+
+.carrito-tarjetas_comprar{
+    display: flex;
+    justify-content: end;
+}
+.carrito-tarjetas_comprar > button{
+    transform: scale(1.35);
+    margin-top: 1rem;
+    margin-right: 2rem;
+}

@@ -226,14 +226,14 @@ function descuento(){
     location.reload()
 }
 
-function savecarrito(){
-    var savecarrito = JSON.stringify(JSON.parse(localStorage.getItem("carrito")))
+function genFacturaCarrito(){
+    var carrito = JSON.stringify(JSON.parse(localStorage.getItem("carrito")))
     var totalPagar = JSON.stringify(JSON.parse(localStorage.getItem("totalPagar")))
 
     var template = []
 
     template.push(
-        "<input type='hidden' name='carrito' value='" + savecarrito + "'></input>" +
+        "<input type='hidden' name='carrito' value='" + carrito + "'></input>" +
         "<input type='hidden' name='totalPagar' value='" + totalPagar + "'></input>"
     )
     document.write(template)
