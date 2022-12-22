@@ -21,6 +21,38 @@
       }  
     </script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            console.log("hola")
+            var socket = io.connect("http://localhost:5000");
+            socket.on('connect', function() {
+                socket.send("User connected");
+            });
+
+            socket.on('message', function(data) {
+                $('#messages').append($('<p>').text(data));
+            });
+
+            $('#sendBtn').on('click', function() {
+                const mess = "Tu: " + document.getElementById('message').value
+                $('#messages').append($('<p>').text(mess));
+                socket.send($('#message').val());
+                $('#message').val('');
+            });
+        });
+
+        $('#message').keypress(function(e) {
+          var keycode = (e.keyCode ? e.keyCode : e.which);
+          if (keycode == '13') {
+            printmessage();
+            e.preventDefault();
+            return false;
+          }
+        });
+    </script>
+
     <header class="p-3 text-bg-dark">
         <div class="container">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -99,9 +131,17 @@
       </div>
 
 
-      <div class="bot">
-        <p>Hola</p>
+      <div class="bot1">
+
       </div>
+      <div class="bot2">
+          <div id="messages" class="mensajes">
+
+          </div>
+          <input type="text" id="message" placeholder="message">
+          <button id="sendBtn" onclick="printmessage()">Send</button>
+      </div>
+
 
 
       <footer class="footer">

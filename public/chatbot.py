@@ -1,13 +1,10 @@
-
-
-
 def Chatbot(message):
     print(message)
     import os
     import openai
 
 
-    openai.api_key = "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"
+    openai.api_key = "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"
 
     conversation = "Human: Hello\nAI: Hello, how can I help you today?"
 

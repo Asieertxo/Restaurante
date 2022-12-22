@@ -3,29 +3,6 @@
 {% block style %}index{% endblock %}
 
 {% block content %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            console.log("hola")
-            var socket = io.connect("http://localhost:5000");
-            socket.on('connect', function() {
-                socket.send("User connected");
-            });
-
-            socket.on('message', function(data) {
-                $('#messages').append($('<p>').text(data));
-            });
-
-            $('#sendBtn').on('click', function() {
-                const mess = "Tu: " + document.getElementById('message').value
-                $('#messages').append($('<p>').text(mess));
-                socket.send($('#message').val());
-                $('#message').val('');
-            });
-        });
-    </script>
-
     <div class="container">
         <div class="index-first">
             <h1>Asier's Burger</h1>
@@ -65,10 +42,4 @@
             </div>
         </div>
     </div>
-
-    <div id="messages">
-
-    </div>
-    <input type="text" id="message" placeholder="message">
-    <button id="sendBtn" onclick="printmessage()">Send</button>
 {% endblock %}
