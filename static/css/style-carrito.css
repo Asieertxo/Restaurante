@@ -101,3 +101,17 @@
     margin-top: 1rem;
     margin-right: 2rem;
 }
+
+
+@media only screen and (max-width: 992px){
+    .separar{
+        display: block;
+        justify-content: center;
+    }
+    .carrito-general{
+        width: 95%;
+    }
+    .carrito-tarjetas{
+        width: 100%;
+    }
+}

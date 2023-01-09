@@ -98,11 +98,20 @@ body::-webkit-scrollbar {
     left: 90%;
     bottom: 5rem;
     z-index: 3;
-    background-color: red;
+    background-color: #212429;
+    border: 2px solid #f3c319;
     border-radius: 45%;
     width: 4rem;
     height: 4rem;
 }
+.bot1 img{
+    position: relative;
+    top: 15px;
+    left: 14px;
+    width: 30px;
+    height: 30px;
+}
+
 .bot2{
     position: sticky;
     left: 70%;
